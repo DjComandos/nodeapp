@@ -21,9 +21,13 @@ after_success:
 #  - develop
 #  - master
 deploy:
-  provider: opsworks
-  access-key-id: $BH_APP_DEV_USER_KEY
-  secret-access-key: $BH_APP_DEV_USER_SECRET
-  app-id: 3c33e8bd-9e9f-43ff-86ab-e8c81588180e
-  on:
-    all_branches: true
+  provider: s3
+  access_key_id: $BH_APP_DEV_USER_KEY
+  secret_access_key: $BH_APP_DEV_USER_SECRET
+  bucket: "bh-artifacts"
+#  provider: opsworks
+#  access-key-id: $BH_APP_DEV_USER_KEY
+#  secret-access-key: $BH_APP_DEV_USER_SECRET
+#  app-id: 3c33e8bd-9e9f-43ff-86ab-e8c81588180e
+#  on:
+#    all_branches: true
