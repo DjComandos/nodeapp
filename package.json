@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "DEBUG=loopback:* node server/server.js"
+    "start": "DEBUG=loopback:* node server/server.js",
+    "pack": "zip bh-app.zip * && mkdir bin && mv bh-app.zip bin/bh-app.zip"
   },
   "dependencies": {
   }
