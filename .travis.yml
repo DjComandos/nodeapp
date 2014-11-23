@@ -6,8 +6,8 @@ before_install:
 before_script:
   - "echo 'creating package...'"
   - "zip bh-app.zip * && mkdir bin && mv bh-app.zip bin/bh-app.zip"
-  - "echo ls"
-  - "echo bin"
+  - "ls"
+  - "ls bin"
 script:
 env:
   global:
