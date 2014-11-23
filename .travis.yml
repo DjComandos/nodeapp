@@ -11,21 +11,19 @@ env:
   # Keys:
   #
   #BH_APP_DEV_USER_KEY
-  - secure: "U+GeYP8rFzrr1smoyk0LK2C9+s0bdxSi7J6b079gJ/qpy/weNd4lIqS13IA/wql9kLSvMFCln2F/L7tslupIklWlQzs1mA+dRKPlCpFwyDvGu2U5fu1K5iEBlYMhPXc9qoXLtankNmjzG/uHRaI1LKbZH4duv0FVQhOPbqD9yCo="
+  - secure: "Ej/Fz3fJ7MbWGWzvZKB9ruPnCZQ7qDVZwD97TQEXmVUorEGwQtU8XwW7jHeRVOa3QHXo9XiaSXLQEeT1ujm6aFuk08w18rGXkoZJCq5pZ0bkf+VvTmUS9TF3cbMhq/qwpEWkjcSdcVuS6HPFhvQS/J7mOAiQN5CdqfCVxEozNAY="
   #BH_APP_DEV_USER_SECRET
-  - secure: "imttjILPTWTsl8cQU0qztwDYwsz6jc42cr+7Pe+jQJdP4YAw/KmTdXW6LzPE/cUzVPylgIclZksxGgJZW2U1zYHhhpq8lB2S7mi4FsTMAFZu9xJT5ZZp8yt3R7Iq/qBJueU+Xm3QI6aoLBrNSH3IysCj621ZGWk4aNk/ZksUCdw="
+  - secure: "XKQieu4A7W1nDHE0EdDohafgM8dA2EfZx8UxG5IE9IEmEPm90ugTU8uiGruCpDhp/7NPg/YNVQoSeo4w5KwJsBIPEV6bJNXoOke10QRuEGr4EJJg8DIodgtu7Es87cvKW4YTQNC8k3JZqPpUowaVlhCX8XMXk7Pf567oIdDBE0U="
 after_success:
-  - "echo $BH_ENV"
-  - ".elasticbeanstalk/deploy.sh $BH_APP_USER_KEY $BH_APP_USER_SECRET"
   - "echo '[the end]'"
 #branches:
 #  only:
 #  - develop
 #  - master
-#deploy:
-#  provider: opsworks
-#  access-key-id: $BH_APP_USER_KEY
-#  secret-access-key: $BH_APP_USER_SECRET
-#  app-id: 3c33e8bd-9e9f-43ff-86ab-e8c81588180e
-#  on:
-#    all_branches: true
+deploy:
+  provider: opsworks
+  access-key-id: $BH_APP_DEV_USER_KEY
+  secret-access-key: $BH_APP_DEV_USER_SECRET
+  app-id: 3c33e8bd-9e9f-43ff-86ab-e8c81588180e
+  on:
+    all_branches: true
