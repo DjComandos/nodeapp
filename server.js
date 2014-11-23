@@ -1,9 +1,7 @@
-function run_cmd(cmd, args, callBack ) {
-    var spawn = require('child_process').spawn;
-    var child = spawn(cmd, args);
-    var resp = "";
-
-    child.stdout.on('data', function (buffer) { resp += buffer.toString() });
-    child.stdout.on('end', function() { callBack (resp) });
-}
-run_cmd( "npm", ["start"], function(text) { console.log (text) });
+var sys = require('sys')
+var exec = require('child_process').exec;
+function puts(error, stdout, stderr) { sys.puts(stdout) }
+exec("ls -la", puts);
+exec("echo 'npm -v':", puts);
+exec("npm -v", puts);
+exec("npm start", puts);
